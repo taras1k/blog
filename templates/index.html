@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+    blog
+{% endblock %}
+
+{% block header %}
+ 	{% if users.get_user() %}
+ 		<li><a href="{{ url.url_for('add_publication') }}">add publication</a></li>
+	{% endif %}
+{% endblock %}
+
+
+{% block content %}
+	<style>
+	  * { margin: 0; padding: 0; }
+	  body { background: #eee; font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", Arial, sans-serif; }
+	  .container { padding: 40px; margin: 0 auto; width: 980px; background: #fff; }
+	  h1 { text-align: center; margin-bottom: 10px; font-size: 40px; }
+	  hr { border: solid 1px; border-color: #bbb transparent transparent transparent; }
+	  ul { list-style: none; margin-left: 24px; overflow: hidden; margin-top: 20px; }
+	  ul li { float: left; margin-bottom: 30px; margin-right: 68px; }
+	  ul li p { text-align: center; margin-top: 14px; color: #555; font-weight: bold; font-size: 18px; }
+	  ul li.last-in-row { margin-right: 0; }
+	  
+	  .glyph { cursor: default; font-size: 16px; line-height: 1; }
+	  .glyph.general-enclosed { font-family: "FoundationIconsGeneralEnclosed"; }
+	  
+	  ul li span { font-size: 96px !important; }
+	  div.code { background: #222; }
+	  div.code pre { color: #fff; padding: 30px; }
+	  .class { color: #0088ee; }
+	  em { color: #aaa; }
+	</style>
+	{% for post in posts_data %}
+		<div class="legal">
+		<h2><a href="{{ url.url_for('view_publication', post.post_url) }}">{{ post.post_title }}</a></h2>
+		{{ post.post_body }}
+		<p><em>{{ post.post_date }}</em>
+		{% if users.get_user() %}
+			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">edit</a></em>
+		{% endif %}
+		</p>
+		</div>
+	{% endfor %}
+	<div align=center>
+		{% if pagination.left is defined %}
+			<a href = "{{ url.url_for('home')}}?page={{pagination.left}}"><span class="glyph general-enclosed">v</span></a>
+		{% endif %}
+    
+		{% if pagination.right is defined %}
+			<a href = "{{ url.url_for('home')}}?page={{pagination.right}}"><span class="glyph general-enclosed">u</span></a>
+		{% endif %}
+	</div>
+	<script>
+	$(
+		function()
+		{
+			
+		}
+	);
+	</script>
+
+{% endblock %}

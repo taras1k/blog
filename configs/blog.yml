@@ -1,0 +1,8 @@
+uwsgi:
+    plugins: python
+    socket: /tmp/blog.sock
+    master: 1
+    daemonize: /home/taras1k/Projects/blog/log/uwsgi.log
+    wsgi-file: /home/taras1k/Projects/blog/main_app.py
+    pythonpath: /home/taras1k/Projects/blog
+    virtualenv: /home/taras1k/.virtualenvs/blog

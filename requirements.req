@@ -1,0 +1,4 @@
+pymongo==2.2
+web.py==0.36
+Jinja2
+python-dateutil==2.1

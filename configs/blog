@@ -1,0 +1,16 @@
+server {
+       listen 9008;
+       location / {
+		  include uwsgi_params;
+                  uwsgi_pass unix:///tmp/blog.sock;
+	}
+	location /static/ {
+        	root /home/taras1k/Projects/blog;
+		if (-f $request_filename) {
+        	   rewrite ^/static/(.*)$  /static/$1 break;
+        	}
+	}
+
+       }
+
+

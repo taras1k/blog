@@ -1,0 +1,12 @@
+/* Foundation Icons General Enclosed */
+@font-face {
+    font-family: 'FoundationIconsGeneralEnclosed';
+    src: url('/static/fonts/foundation-icons-general-enclosed.eot');
+    src: url('/static/fonts/foundation-icons-general-enclosed.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/foundation-icons-general-enclosed.woff') format('woff'),
+         url('/static/fonts/foundation-icons-general-enclosed.ttf') format('truetype'),
+         url('/static/fonts/foundation-icons-general-enclosed.svg#FoundationIconsGeneralEnclosed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

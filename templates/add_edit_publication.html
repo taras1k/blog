@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Skin CSS file -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/assets/skins/sam/skin.css">
+<!-- Utility Dependencies -->
+<script src="http://yui.yahooapis.com/2.9.0/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+<script src="http://yui.yahooapis.com/2.9.0/build/element/element-min.js"></script> 
+<!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
+<script src="http://yui.yahooapis.com/2.9.0/build/container/container_core-min.js"></script>
+<script src="http://yui.yahooapis.com/2.9.0/build/menu/menu-min.js"></script>
+<script src="http://yui.yahooapis.com/2.9.0/build/button/button-min.js"></script>
+<!-- Source file for Rich Text Editor-->
+<script src="http://yui.yahooapis.com/2.9.0/build/editor/editor-min.js"></script>
+<link rel="stylesheet" href="http://yandex.st/jquery-ui/1.8.15/themes/redmond/jquery.ui.all.min.css">
+<script src="http://yandex.st/jquery/1.7.1/jquery.js"></script>
+<script src="http://yandex.st/jquery-ui/1.8.16/jquery-ui.js"></script>
+<script src={{ url.url_for('static', 'jquery-ui-timepicker-addon.js')}}></script>
+<link rel="stylesheet" href={{ url.url_for('static', 'jquery-ui-timepicker-addon.css')}}>
+
+{% endblock %}
+
+{% block title %}
+  {% if is_edit %}
+    edit publication
+  {% else %}
+    add publication
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+        <form id="signUpForm" method="POST" action=
+        {% if is_edit %}
+          "{{url.url_for('edit_publication', post.post_url)}}"
+        {% else %}
+          "{{url.url_for('add_publication')}}"
+        {% endif %}
+        >
+
+            <ul class="inputs">
+                <li>
+                    <label class="serif" for="post_title">Заголовок</label>
+                    <input name="post_title" class="sans" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />
+					<label class="serif" for="post_body">Текст</label>
+					<div class="yui-skin-sam">
+						<textarea name="post_body" tabindex="3" id="msgpost" cols="50" rows="10">
+    					{{ post.post_body }}
+						</textarea>
+					</div>
+                    <br />
+                    <label class="serif" for="post_drafts">Чернетка
+                    <input name="post_url" id="post_url" type = "hidden" value="{{ post.post_url }}" />
+                     <input name="post_drafts" class="sans" id="post_drafts" 
+                     {% if post.post_drafts %}
+                      checked
+                     {% endif %}
+                     type="checkbox"  tabindex="4" maxlength="254" /></label>
+                     <label class="serif" for="post_date">Дата публікації
+                     <input name="post_date" class="sans" id="post_date"  type="date" tabindex="5" maxlength="254" value="{{ post.post_date }}"/></label>
+                </li> 
+              </ul>
+            <div class="submit cf forminputs">
+                <button id='post_publication' tabindex="5">
+                  {% if is_edit %}
+                    Зберегти
+                  {% else %}
+                    Публікувати
+                  {% endif %}
+                </button>
+            </div>
+        </form>
+        {{ post }}
+
+{% endblock %}
+
+{% block scripts %}
+<script type='text/javascript'>
+	$(document).ready(function() {
+       $("#post_date").datetimepicker();
+		var myEditor = new YAHOO.widget.Editor('msgpost', {
+    		height: '200px',
+    		width: '630px',
+    		
+    		animate: true //Animates the opening, closing and moving of Editor windows
+		});
+		myEditor.render();
+
+		$('#post_publication').on('click', function(){
+				myEditor.saveHTML();
+			}
+		);
+	});
+</script>
+
+{% endblock %}
