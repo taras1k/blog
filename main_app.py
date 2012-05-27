@@ -33,7 +33,7 @@ session = web.session.Session(app, MongoStore(settings.db, 'sessions'))
 
 users.session = session
 users.collection = settings.db.users
-users.SALTY_GOODNESS = u'39x|D__wTe#aKL_-!9+o$6i;Jlo{_<$N(6nFP_!116`,=fl-$j6G7Lh~_G-X.NTK-_}*`huW2}F6pc-7_i8-P$XA--__09tSb!G-'
+
 
 def render_template(template_name, **context):
     extensions = context.pop('extensions', [])

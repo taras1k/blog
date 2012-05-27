@@ -2,7 +2,9 @@
 import web
 import hashlib
 from settings import connection
-SALTY_GOODNESS = u'YOUR RANDOM GENERATED SALTY'
+import sensetive_info 
+
+SALTY_GOODNESS = sensetive_info.SALTY_GOODNESS
 
 #Must be set by the thing importing this module
 collection = None
