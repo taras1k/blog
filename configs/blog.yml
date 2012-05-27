@@ -3,5 +3,5 @@ uwsgi:
     master: 1
     daemonize: /var/www/blog/log/uwsgi.log
     wsgi-file: /var/www/blog/main_app.py
-    pythonpath: /var/www/Projects/blog
+    pythonpath: /var/www/blog
     virtualenv: /root/.virtualenvs/blog
