@@ -41,7 +41,9 @@
 			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">edit</a></em>
 		{% endif %}
 		</p>
-		<span class="disqus-count-text">Comments</span>
+		Zero Comments: 0 <span class="disqus-count-text">Comments</span>
+		One Comment: 1 <span class="disqus-count-text">Comment</span>
+		Multiple Comments: {num} <span class="disqus-count-text">Comments</span>
 		</div>
 	{% endfor %}
 	<div align=center>
