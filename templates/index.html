@@ -34,7 +34,7 @@
 	</style>
 	{% for post in posts_data %}
 		<div class="legal">
-		<h2><a href="{{ url.url_for('view_publication', post.post_url) }}">{{ post.post_title }}</a></h2>
+		<h2><a href="{{ url.url_for('view_publication', post.post_url) }}#disqus_thread">{{ post.post_title }}</a></h2>
 		{{ post.post_body }}
 		<p><em>{{ post.post_date }}</em>
 		{% if users.get_user() %}
