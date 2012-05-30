@@ -17,7 +17,7 @@ url.add('/login/', 'login')
 url.add('/logout/', 'logout')
 url.add('/add_publication/', 'add_publication')
 url.add('/edit_publication/', 'edit_publication')
-url.add('/', 'view_publication')
+url.add('/posts/', 'view_publication')
 
 
 urls = ("/login/", "login",
@@ -25,7 +25,7 @@ urls = ("/login/", "login",
 		"/", "main",
         "/add_publication/", "add_publication",
         "/edit_publication/(.+)", "edit_publication",
-        "/(.+)", "view_publication")
+        "/posts/(.+)", "view_publication")
 
 app = web.application(urls, globals())
 
