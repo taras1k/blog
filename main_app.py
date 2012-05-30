@@ -136,6 +136,11 @@ class view_publication:
     def GET(self, post_url):
         post = Post(users, post_url)
         return render_template('view_publication.html', data=post)
+
+def notfound():
+    return web.notfound(render_template('404.html'))
+
+app.notfound = notfound
     
 if __name__ == "__main__":
     app.run()
