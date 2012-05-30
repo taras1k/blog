@@ -40,9 +40,9 @@
 		{% if users.get_user() %}
 			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">edit</a></em>
 		{% endif %}
-		</p>		
-		<a href="{{ url.url_for('view_publication', post.post_url) }}#disqus_thread" >Коментарі</a>	
+		<em><a href="{{ url.url_for('view_publication', post.post_url) }}#disqus_thread" >Коментарі</a></em>
 		</div>
+		</p>	
 	{% endfor %}
 	<div align=center>
 		{% if pagination.left is defined %}
