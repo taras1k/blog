@@ -41,7 +41,7 @@
 			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">edit</a></em>
 		{% endif %}
 		</p>		
-		<a href="{{ url.url_for('edit_publication', post.post_url) }}#disqus_thread" data-disqus-identifier"{{ post.post_url }}">Коментарі</a>	
+		<a href="{{ url.url_for('edit_publication', post.post_url) }}#disqus_thread" >Коментарі</a>	
 		</div>
 	{% endfor %}
 	<div align=center>
@@ -54,6 +54,7 @@
 		{% endif %}
 	</div>
 {% endblock %}
+
 {% block script %}
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
