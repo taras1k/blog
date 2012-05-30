@@ -22,17 +22,16 @@
 
     <header id="header" class="cf">
         <ul class="cf">
-            <li><a href="/">BrowserID Home</a></li>
+            <li><a href="/">Самописний блог</a></li>
         </ul>
 
         <ul class="nav cf">
-            <li><a href="/about">How it works</a></li>
-            <li><a href="https://github.com/mozilla/browserid/wiki/How-to-Use-BrowserID-on-Your-Site" target="_blank">Developers</a></li>
+            <li><a href="https://github.com/taras1k/blog" target="_blank">git</a></li>
             {% block header %}{% endblock %}
             {%if users.get_user() %}
-              <li class="signIn"><a class="signIn" href="{{url.url_for('logout')}}">Sign Out</a></li>
+              <li class="signIn"><a class="signIn" href="{{url.url_for('logout')}}">вийти</a></li>
             {%else%}
-              <li class="signIn"><a class="signIn" href="{{url.url_for('login')}}">Sign In </a></li>
+              <li class="signIn"><a class="signIn" href="{{url.url_for('login')}}">ввійти </a></li>
             {%endif%}
         </ul>
     </header>
@@ -46,8 +45,7 @@
       {% block footer %}
     <footer id="footer">
         <ul class="cf">
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/tos">TOS</a></li>
+            <li><a href="/about">про</a></li>
         </ul>
     </footer>
     {% endblock %}
