@@ -6,7 +6,7 @@
 
 {% block header %}
  	{% if users.get_user() %}
- 		<li><a href="{{ url.url_for('add_publication') }}">add publication</a></li>
+ 		<li><a href="{{ url.url_for('add_publication') }}">додати</a></li>
 	{% endif %}
 {% endblock %}
 
@@ -38,7 +38,7 @@
 		{{ post.post_body }}
 		<p><em>{{ post.post_date }}</em>
 		{% if users.get_user() %}
-			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">edit</a></em>
+			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">редагувати</a></em>
 		{% endif %}
 		<em><a href="{{ url.url_for('view_publication', post.post_url) }}#disqus_thread" >Коментарі</a></em>
 		</div>
