@@ -83,7 +83,7 @@ class get_json_posts:
         web.header('Content-Type', 'application/json')
         articles = post.get_posts(skip_from=page, 
                                     limit_to=POSTS_PER_PAGE)
-        return json.dumps(list(articles), default=json_util.default)
+        return json.dumps(tuple(articles), default=json_util.default)
 
 
 class login:
