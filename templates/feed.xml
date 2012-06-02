@@ -9,8 +9,8 @@
 
       <lastbuilddate>{{ date }}</lastbuilddate>
       <generator>taras.nek.me</generator>
-      <managingeditor>mr.taras1k@gmail.com</managingeditor>
-      <webmaster>mr.taras1k@gmail.com</webmaster>
+      <managingeditor>i@taras.nek.me</managingeditor>
+      <webmaster>i@taras.nek.me</webmaster>
 
       {% for post in posts %}
       <item>
