@@ -161,7 +161,7 @@ class view_page:
 
 class feed:
     def GET(self):
-        date = datetime.today().strftime("%a, %d %b %Y %H:%M:%S +0200")
+        date = datetime.datetime.today().strftime("%a, %d %b %Y %H:%M:%S +0200")
         post = Post(users)
         posts = post.get_posts(limit_to=POSTS_PER_PAGE)
         web.header('Content-Type', 'application/xml')
