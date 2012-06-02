@@ -2,7 +2,7 @@
 <rss version="2.0">
    <channel>
       <title>самописний блог</title>
-      <link>http://taras.nek.me</link>
+      <link>http://taras.nek.me
       <description>то є такий блог шо сам пишеться)).</description>
       <language>uk-ua</language>
       <pubdate>{{ date }}</pubdate>
