@@ -8,6 +8,7 @@ from helpers import url, get_page
 from controlers import Post
 from session import MongoStore
 from jinja2 import Environment,FileSystemLoader
+from pymongo import json_util
 import simplejson as json
 
 POSTS_PER_PAGE = 5
@@ -78,7 +79,7 @@ class get_json_posts:
         web.header('Content-Type', 'application/json')
         articles = post.get_posts(skip_from=page, 
                                     limit_to=POSTS_PER_PAGE)
-        return json.dumps(articles.values())
+        return json.dumps(articles.values(), default=json_util.default)
 
 
 class login:
