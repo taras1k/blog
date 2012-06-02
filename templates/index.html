@@ -46,11 +46,15 @@
 	{% endfor %}
 	<div align=center>
 		{% if pagination.left is defined %}
+		<div class="next">
 			<a href = "{{ url.url_for('home')}}?page={{pagination.left}}"><span class="glyph general-enclosed">v</span></a>
+		</div>	
 		{% endif %}
     
 		{% if pagination.right is defined %}
+		<div class="prev">
 			<a href = "{{ url.url_for('home')}}?page={{pagination.right}}"><span class="glyph general-enclosed">u</span></a>
+		</div>
 		{% endif %}
 	</div>
 {% endblock %}

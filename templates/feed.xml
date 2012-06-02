@@ -1,0 +1,25 @@
+<!--?xml version="1.0"?-->
+<rss version="2.0">
+   <channel>
+      <title>самописний блог</title>
+      <link>http://taras.nek.me</link>
+      <description>то є такий блог шо сам пишеться)).</description>
+      <language>uk-ua</language>
+      <pubdate>{{ date }}</pubdate>
+
+      <lastbuilddate>{{ date }}</lastbuilddate>
+      <generator>taras.nek.me</generator>
+      <managingeditor>mr.taras1k@gmail.com</managingeditor>
+      <webmaster>mr.taras1k@gmail.com</webmaster>
+
+      {% for post in posts %}
+      <item>
+         <title>{{ post.post_title }}</title>
+         <link>http://www.mengu.net/post/{{ post.slug }}
+         <description><!--[CDATA[{{ post.post_body[:100] }}..]]--></description>
+         <pubdate>{{ post.post_date }}</pubdate>
+         <guid>{{ url.url_for('view_publication', post.post_url) }}</guid>
+      </item>
+      {% endfor %}
+    </channel>
+</rss>

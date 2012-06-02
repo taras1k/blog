@@ -20,7 +20,9 @@ url.add('/logout/', 'logout')
 url.add('/add_publication/', 'add_publication')
 url.add('/edit_publication/', 'edit_publication')
 url.add('/posts/', 'view_publication')
+url.add('/pages/', 'view_page')
 url.add('/api/json/','get_json_posts')
+url.add('/rss/','feed')
 
 
 urls = ("/login/", "login",
@@ -29,7 +31,9 @@ urls = ("/login/", "login",
         "/add_publication/", "add_publication",
         "/edit_publication/(.+)", "edit_publication",
         "/posts/(.+)", "view_publication",
-        "/api/json/", "get_json_posts")
+        "/pages/(.+)", "view_page",
+        "/api/json/", "get_json_posts",
+        "/rss/", "feeds")
 
 app = web.application(urls, globals())
 
@@ -148,6 +152,20 @@ class view_publication:
     def GET(self, post_url):
         post = Post(users, post_url)
         return render_template('view_publication.html', data=post)
+
+class view_page:
+    
+    def GET(self, page_url):
+        post = Post(users, page_url)
+        return render_template('view_page.html', data=post)
+
+class feed:
+    def GET(self):
+        date = datetime.today().strftime("%a, %d %b %Y %H:%M:%S +0200")
+        post = Post(users)
+        posts = post.get_posts(limit_to=POSTS_PER_PAGE)
+        web.header('Content-Type', 'application/xml')
+        return render_template('feed.xml', posts=posts, date=date)
 
 def notfound():
     return web.notfound(render_template('404.html'))

@@ -9,7 +9,11 @@ class Post(object):
         self.users = users
         self.post_model = PostModel()
         self.time_format = '%Y-%m-%d %H:%M'
-        self.post_db = self.post_model.find_one({'post_url':post_url})      
+        if self.users.get_user():
+            self.post_db = self.post_model.find_one({'post_url':post_url})
+        else:
+            d = datetime.today().strftime(self.time_format)
+            self.post_db = self.post_model.find_one({'post_url':post_url,'$and':[{'post_drafts':False},{'post_date': {'$lt': d}}]})
         if self.post_db is None:
             self.post_db = {}     
 

@@ -26,7 +26,6 @@
         </ul>
 
         <ul class="nav cf">
-            <li><a href="https://github.com/taras1k/blog" target="_blank">git</a></li>
             {% block header %}{% endblock %}
             {%if users.get_user() %}
               <li class="signIn"><a class="signIn" href="{{url.url_for('logout')}}">вийти</a></li>
@@ -43,7 +42,7 @@
       {% block footer %}
     <footer id="footer">
         <ul class="cf">
-            <li><a href="/about">про</a></li>
+            <li><a href="https://github.com/taras1k/blog" target="_blank">git</a></li>
         </ul>
     </footer>
     {% endblock %}
