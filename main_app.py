@@ -33,7 +33,7 @@ urls = ("/login/", "login",
         "/posts/(.+)", "view_publication",
         "/pages/(.+)", "view_page",
         "/api/json/", "get_json_posts",
-        "/rss/", "feeds")
+        "/rss/", "feed")
 
 app = web.application(urls, globals())
 
