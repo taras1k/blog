@@ -4,10 +4,11 @@ import web
 import users
 import datetime
 import settings 
-from helpers import url
+from helpers import url, get_page
 from controlers import Post
 from session import MongoStore
 from jinja2 import Environment,FileSystemLoader
+import simplejson as json
 
 POSTS_PER_PAGE = 5
 
@@ -18,6 +19,7 @@ url.add('/logout/', 'logout')
 url.add('/add_publication/', 'add_publication')
 url.add('/edit_publication/', 'edit_publication')
 url.add('/posts/', 'view_publication')
+url.add('/api/json/','get_json_posts')
 
 
 urls = ("/login/", "login",
@@ -25,7 +27,8 @@ urls = ("/login/", "login",
 		"/", "main",
         "/add_publication/", "add_publication",
         "/edit_publication/(.+)", "edit_publication",
-        "/posts/(.+)", "view_publication")
+        "/posts/(.+)", "view_publication",
+        "/api/json/(.+)", "get_json_posts")
 
 app = web.application(urls, globals())
 
@@ -56,11 +59,7 @@ class main:
         params = web.input()
         pagination = {}
         g_page = params.get('page', 0)
-        page = 0
-        try:
-            page = int(g_page)
-        except:
-            pass
+        page = get_page(g_page)
         if page > 0:
             pagination['left'] = page - POSTS_PER_PAGE
         if page < post.get_posts_count() - POSTS_PER_PAGE:
@@ -69,6 +68,16 @@ class main:
                                 posts_data=post.get_posts(skip_from=page, 
                                                             limit_to=POSTS_PER_PAGE), 
                                 page=page, pagination=pagination)
+
+class get_json_posts:
+    def GET(self):
+        post = Post(users)
+        g_page = params.get('page', 0)
+        page = get_page(g_page)
+        web.header('Content-Type', 'application/json')
+        return json.dumps(post.get_posts(skip_from=page, 
+                                        limit_to=POSTS_PER_PAGE))
+
 
 class login:
     def GET(self):

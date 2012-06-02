@@ -11,3 +11,11 @@ class Urls(object):
         return self.urls[name] + (param if param else '')
 
 url = Urls()
+
+def get_page(g_page):        
+    page = 0
+    try:
+        page = int(g_page)
+    except:
+        pass
+    return page
