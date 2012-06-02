@@ -28,7 +28,7 @@ urls = ("/login/", "login",
         "/add_publication/", "add_publication",
         "/edit_publication/(.+)", "edit_publication",
         "/posts/(.+)", "view_publication",
-        "/api/json/(.+)", "get_json_posts")
+        "/api/json/", "get_json_posts")
 
 app = web.application(urls, globals())
 
