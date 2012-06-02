@@ -72,6 +72,7 @@ class main:
 class get_json_posts:
     def GET(self):
         post = Post(users)
+        params = web.input()
         g_page = params.get('page', 0)
         page = get_page(g_page)
         web.header('Content-Type', 'application/json')
