@@ -8,7 +8,7 @@ from helpers import url, get_page
 from controlers import Post
 from session import MongoStore
 from jinja2 import Environment,FileSystemLoader
-from pymongo import json_util
+from bson import json_util
 import simplejson as json
 
 POSTS_PER_PAGE = 5
