@@ -96,8 +96,8 @@ class Post(object):
         if limit_to < 0: 
             limit_to = 10
         if self.users.get_user():
-            posts = self.post_model.find({}, {"_id" : 0})
+            posts = self.post_model.find({})
         else:
             d = datetime.today().strftime(self.time_format)
-            posts = self.post_model.find({'$and':[{'post_drafts':False},{'post_date': {'$lt': d}}]}, {"_id" : 0})
+            posts = self.post_model.find({'$and':[{'post_drafts':False},{'post_date': {'$lt': d}}]})
         return posts.skip(skip_from).limit(limit_to)

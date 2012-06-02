@@ -76,9 +76,9 @@ class get_json_posts:
         g_page = params.get('page', 0)
         page = get_page(g_page)
         web.header('Content-Type', 'application/json')
-        articles = post.get_posts(skip_from=page, 
-                                    limit_to=POSTS_PER_PAGE)
-        return json.dumps(list(articles))
+        articles = list(post.get_posts(skip_from=page, 
+                                    limit_to=POSTS_PER_PAGE))
+        return json.dumps(str(articles))
 
 
 class login:
