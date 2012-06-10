@@ -6,15 +6,13 @@
 
 
 {% block content %}
-		<div class="legal">
+		<div class="hero-unit">
 		<h2>{{ data.post_title }}</h2>
-		{{ data.post_body }}
-		<p><em>{{ data.post_date }}</em>
+		<p>{{ data.post_body }}</p>
+		<em>{{ data.post_date }}</em>
 		{% if users.get_user() %}
 			<em><a href="{{ url.url_for('edit_publication', data.post_url) }}">edit</a></em>
 		{% endif %}
-		</p>
-		</dv>
 		<div id="disqus_thread"></div>
 			<script type="text/javascript">
     		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -29,5 +27,6 @@
 		</script>
 		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
 {% endblock %}
 

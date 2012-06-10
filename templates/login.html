@@ -6,26 +6,21 @@
 
 
 {% block content %}
- <div id="signUpFormWrap">
+ <div class="hero-unit">
         {% if bad_pass %}
-        <div class="error">
-          логін або пароль введено невірно
+        <div class="alert alert-error">
+            логін або пароль введено невірно
         </div>
         {% endif %}
-        <form id="signUpForm" method="POST" action="{{url.url_for('login')}}" class="cf authform" novalidate>
-            <h1 class="serif">Вхід</h1>
-
-            <ul class="inputs">
-                <li>
-                    <label class="serif" for="email">Пошта</label>
-                    <input name="username" class="sans" id="email" autofocus placeholder="Ваша пошта" type="email" autocapitalize="off" autocorrect="off" tabindex="1" maxlength="254" />
-					<label class="serif" for="password">Пароль</label>
-                    <input name="password" class="sans" id="password" placeholder="Ваш пароль" type="password" tabindex="2" maxlength="80">
-                </li>
-              </ul>
-            <div class="submit cf forminputs">
-                <button tabindex="5">Ввійти</button>
-            </div>
+        <form method="POST" action="{{url.url_for('login')}}" class="cf authform" novalidate>
+            <h2>Вхід</h2>
+                    <label for="email">Пошта</label>
+                    <input name="username" id="email" autofocus placeholder="Ваша пошта" type="email" autocapitalize="off" autocorrect="off" tabindex="1" maxlength="254" />
+					<label for="password">Пароль</label>
+                    <input name="password" id="password" placeholder="Ваш пароль" type="password" tabindex="2" maxlength="80" />
+                    <div class="btn-group">
+                        <button class="btn btn-primary" tabindex="5">Ввійти</button>
+                    </div>
         </form>
     </div>
 {% endblock %}

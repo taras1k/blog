@@ -30,45 +30,39 @@
 
 
 {% block content %}
-        <form id="signUpForm" method="POST" action=
+        <form class="hero-unit" method="POST" action=
         {% if is_edit %}
           "{{url.url_for('edit_publication', post.post_url)}}"
         {% else %}
           "{{url.url_for('add_publication')}}"
         {% endif %}
         >
-
-            <ul class="inputs">
-                <li>
-                    <label class="serif" for="post_title">Заголовок</label>
-                    <input name="post_title" class="sans" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />
-					<label class="serif" for="post_body">Текст</label>
+                    <label for="post_title">Заголовок</label>
+                    <input name="post_title" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />
+					<label for="post_body">Текст</label>
 					<div class="yui-skin-sam">
 						<textarea name="post_body" tabindex="3" id="msgpost" cols="50" rows="10">
     					{{ post.post_body }}
 						</textarea>
 					</div>
-                    <br />
-                    <label class="serif" for="post_drafts">Чернетка
-                    <input name="post_url" id="post_url" type = "hidden" value="{{ post.post_url }}" />
-                     <input name="post_drafts" class="sans" id="post_drafts" 
+          <input name="post_url" id="post_url" type = "hidden" value="{{ post.post_url }}" />
+          <label for="post_drafts">Чернетка</label>
+          <input name="post_drafts" id="post_drafts" 
                      {% if post.post_drafts %}
                       checked
                      {% endif %}
-                     type="checkbox"  tabindex="4" maxlength="254" /></label>
-                     <label class="serif" for="post_date">Дата публікації
-                     <input name="post_date" class="sans" id="post_date"  type="date" tabindex="5" maxlength="254" value="{{ post.post_date }}"/></label>
-                </li> 
-              </ul>
-            <div class="submit cf forminputs">
-                <button id='post_publication' tabindex="5">
-                  {% if is_edit %}
-                    Зберегти
-                  {% else %}
-                    Публікувати
-                  {% endif %}
-                </button>
-            </div>
+                     type="checkbox"  tabindex="4" maxlength="254" />
+          <label for="post_date">Дата публікації</label>
+          <input name="post_date" id="post_date"  type="date" tabindex="5" maxlength="254" value="{{ post.post_date }}"/>
+              <div class="btn-group">
+                        <button class="btn btn-primary" tabindex="5">
+                        {% if is_edit %}
+                          Зберегти
+                        {% else %}
+                          Публікувати
+                        {% endif %}
+                        </button>
+              </div>
         </form>
         {{ post }}
 
