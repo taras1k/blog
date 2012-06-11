@@ -18,3 +18,8 @@ class PostModel(object):
     def save(self, post_db):
         with connection.start_request() as request:
             self.posts.save(post_db)
+
+    def remove(self, post_db):
+        with connection.start_request() as request:
+            self.posts.remove(post_db)
+
