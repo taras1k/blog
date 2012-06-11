@@ -55,7 +55,7 @@
           <label for="post_date">Дата публікації</label>
           <input name="post_date" id="post_date"  type="date" tabindex="5" maxlength="254" value="{{ post.post_date }}"/>
               <div class="btn-group">
-                        <button class="btn btn-primary" tabindex="5">
+                        <button id="post_publication" class="btn btn-primary" tabindex="5">
                         {% if is_edit %}
                           Зберегти
                         {% else %}

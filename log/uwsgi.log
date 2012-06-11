@@ -100,3 +100,98 @@ spawned uWSGI worker 1 (pid: 4344, cores: 1)
 [pid: 4344|app: 0|req: 61/61] 127.0.0.1 () {40 vars in 698 bytes} [Sun Jun 10 16:14:33 2012] GET /posts/13371993540 => generated 3925 bytes in 39 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
 [pid: 4344|app: 0|req: 62/62] 127.0.0.1 () {40 vars in 681 bytes} [Sun Jun 10 16:14:38 2012] GET / => generated 4730 bytes in 75 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
 [pid: 4344|app: 0|req: 63/63] 127.0.0.1 () {40 vars in 677 bytes} [Sun Jun 10 16:14:44 2012] GET /?page=5 => generated 4886 bytes in 58 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
+...brutally killing workers...
+...brutally killing workers...
+binary reloading uWSGI...
+chdir() to /etc/uwsgi/apps-enabled
+closing all non-uwsgi socket fds > 2 (_SC_OPEN_MAX = 1024)...
+found fd 4 mapped to socket 0 (/tmp/blog.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting YAML configuration from blog.yml
+*** Starting uWSGI 1.0.3-debian (32bit) on [Sun Jun 10 16:22:42 2012] ***
+compiled with version: 4.6.2 on 20 February 2012 10:06:16
+current working directory: /etc/uwsgi/apps-enabled
+detected binary path: /usr/bin/uwsgi-core
+your memory page size is 4096 bytes
+uwsgi socket 0 inherited UNIX address /tmp/blog.sock fd 4
+Python version: 2.7.3 (default, Apr 20 2012, 23:06:40)  [GCC 4.6.3]
+Set PythonHome to /home/taras1k/.virtualenvs/blog
+Python main interpreter initialized at 0x93de4d8
+your server socket listen backlog is limited to 100 connections
+*** Operational MODE: single process ***
+added /home/taras1k/Projects/blog_git/blog/ to pythonpath.
+binary reloading uWSGI...
+chdir() to /etc/uwsgi/apps-enabled
+closing all non-uwsgi socket fds > 2 (_SC_OPEN_MAX = 1024)...
+found fd 4 mapped to socket 0 (/tmp/blog.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting YAML configuration from blog.yml
+*** Starting uWSGI 1.0.3-debian (32bit) on [Sun Jun 10 16:22:43 2012] ***
+compiled with version: 4.6.2 on 20 February 2012 10:06:16
+current working directory: /etc/uwsgi/apps-enabled
+detected binary path: /usr/bin/uwsgi-core
+your memory page size is 4096 bytes
+uwsgi socket 0 inherited UNIX address /tmp/blog.sock fd 4
+Python version: 2.7.3 (default, Apr 20 2012, 23:06:40)  [GCC 4.6.3]
+Set PythonHome to /home/taras1k/.virtualenvs/blog
+Python main interpreter initialized at 0x8b744d8
+your server socket listen backlog is limited to 100 connections
+*** Operational MODE: single process ***
+added /home/taras1k/Projects/blog_git/blog/ to pythonpath.
+Traceback (most recent call last):
+  File "/home/taras1k/Projects/blog_git/blog/main_app.py", line 4, in <module>
+    import users
+  File "/home/taras1k/Projects/blog_git/blog/users.py", line 4, in <module>
+Traceback (most recent call last):
+  File "/home/taras1k/Projects/blog_git/blog/main_app.py", line 4, in <module>
+    import users
+  File "/home/taras1k/Projects/blog_git/blog/users.py", line 4, in <module>
+    from settings import connection
+    from settings import connection
+  File "/home/taras1k/Projects/blog_git/blog/settings.py", line 4, in <module>
+  File "/home/taras1k/Projects/blog_git/blog/settings.py", line 4, in <module>
+    connection = Connection(auto_start_request=False) 
+    connection = Connection(auto_start_request=False) 
+  File "/home/taras1k/.virtualenvs/blog/local/lib/python2.7/site-packages/pymongo/connection.py", line 290, in __init__
+  File "/home/taras1k/.virtualenvs/blog/local/lib/python2.7/site-packages/pymongo/connection.py", line 290, in __init__
+    self.__find_node()
+  File "/home/taras1k/.virtualenvs/blog/local/lib/python2.7/site-packages/pymongo/connection.py", line 586, in __find_node
+    self.__find_node()
+  File "/home/taras1k/.virtualenvs/blog/local/lib/python2.7/site-packages/pymongo/connection.py", line 586, in __find_node
+    raise AutoReconnect(', '.join(errors))
+    raise AutoReconnect(', '.join(errors))
+pymongo.errorspymongo.errors..AutoReconnectAutoReconnect: : could not connect to localhost:27017: [Errno 111] Connection refusedcould not connect to localhost:27017: [Errno 111] Connection refused
+
+unable to load app 0 (mountpoint='') (callable not found or import error)
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 4176)
+gracefully (RE)spawned uWSGI master process (pid: 4338)
+spawned uWSGI worker 1 (pid: 5458, cores: 1)
+spawned uWSGI worker 1 (pid: 5459, cores: 1)
+Sun Jun 10 19:22:38 2012 - *** Starting uWSGI 1.0.3-debian (32bit) on [Sun Jun 10 19:22:38 2012] ***
+Sun Jun 10 19:22:38 2012 - compiled with version: 4.6.2 on 20 February 2012 10:06:16
+Sun Jun 10 19:22:38 2012 - current working directory: /
+Sun Jun 10 19:22:38 2012 - writing pidfile to /run/uwsgi/app/blog/pid
+Sun Jun 10 19:22:38 2012 - detected binary path: /usr/bin/uwsgi-core
+Sun Jun 10 19:22:38 2012 - setgid() to 33
+Sun Jun 10 19:22:38 2012 - setuid() to 33
+Sun Jun 10 19:22:38 2012 - your memory page size is 4096 bytes
+Sun Jun 10 19:22:38 2012 - uwsgi socket 0 bound to UNIX address /run/uwsgi/app/blog/socket fd 6
+Sun Jun 10 19:22:38 2012 - uwsgi socket 1 bound to UNIX address /tmp/blog.sock fd 7
+Sun Jun 10 19:22:38 2012 - Python version: 2.7.3 (default, Apr 20 2012, 23:06:40)  [GCC 4.6.3]
+Sun Jun 10 19:22:38 2012 - Set PythonHome to /home/taras1k/.virtualenvs/blog
+Sun Jun 10 19:22:38 2012 - Python main interpreter initialized at 0x8de6648
+Sun Jun 10 19:22:38 2012 - your server socket listen backlog is limited to 100 connections
+Sun Jun 10 19:22:38 2012 - *** Operational MODE: preforking ***
+Sun Jun 10 19:22:38 2012 - added /home/taras1k/Projects/blog_git/blog/ to pythonpath.
+Sun Jun 10 19:22:38 2012 - failed to open python file /home/taras1k/Projects/blog_git/blog/main_app.py
+Sun Jun 10 19:22:38 2012 - unable to load app 0 (mountpoint='') (callable not found or import error)
+Sun Jun 10 19:22:38 2012 - *** no app loaded. going in full dynamic mode ***
+Sun Jun 10 19:22:38 2012 - *** uWSGI is running in multiple interpreter mode ***
+Sun Jun 10 19:22:38 2012 - spawned uWSGI master process (pid: 1702)
+Sun Jun 10 19:22:38 2012 - spawned uWSGI worker 1 (pid: 1784, cores: 1)
+Sun Jun 10 19:22:38 2012 - spawned uWSGI worker 2 (pid: 1785, cores: 1)
