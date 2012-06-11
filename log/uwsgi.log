@@ -195,3 +195,26 @@ Sun Jun 10 19:22:38 2012 - *** uWSGI is running in multiple interpreter mode ***
 Sun Jun 10 19:22:38 2012 - spawned uWSGI master process (pid: 1702)
 Sun Jun 10 19:22:38 2012 - spawned uWSGI worker 1 (pid: 1784, cores: 1)
 Sun Jun 10 19:22:38 2012 - spawned uWSGI worker 2 (pid: 1785, cores: 1)
+*** Starting uWSGI 1.0.3-debian (32bit) on [Tue Jun 12 00:07:16 2012] ***
+compiled with version: 4.6.2 on 20 February 2012 10:06:16
+current working directory: /etc/uwsgi/apps-enabled
+detected binary path: /usr/bin/uwsgi-core
+your memory page size is 4096 bytes
+uwsgi socket 0 bound to UNIX address /tmp/blog.sock fd 4
+Python version: 2.7.3 (default, Apr 20 2012, 23:06:40)  [GCC 4.6.3]
+Set PythonHome to /home/taras1k/.virtualenvs/blog
+Python main interpreter initialized at 0x83c6538
+your server socket listen backlog is limited to 100 connections
+*** Operational MODE: single process ***
+added /home/taras1k/Projects/blog_git/blog/ to pythonpath.
+WSGI application 0 (mountpoint='') ready on interpreter 0x83c6538 pid: 10452 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10452)
+spawned uWSGI worker 1 (pid: 10458, cores: 1)
+[pid: 10458|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 597 bytes} [Tue Jun 12 00:07:27 2012] GET / => generated 4730 bytes in 174 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 2/2] 127.0.0.1 () {38 vars in 662 bytes} [Tue Jun 12 00:07:29 2012] GET /favicon.ico => generated 3038 bytes in 41 msecs (HTTP/1.1 404) 2 headers in 140 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 3/3] 127.0.0.1 () {38 vars in 692 bytes} [Tue Jun 12 00:07:29 2012] GET /favicon.ico => generated 3038 bytes in 30 msecs (HTTP/1.1 404) 2 headers in 140 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 4/4] 127.0.0.1 () {40 vars in 742 bytes} [Tue Jun 12 00:07:30 2012] GET /posts/13371993540 => generated 3925 bytes in 43 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 5/5] 127.0.0.1 () {38 vars in 680 bytes} [Tue Jun 12 00:07:41 2012] GET /login => generated 3038 bytes in 37 msecs (HTTP/1.1 404) 2 headers in 140 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 6/6] 127.0.0.1 () {38 vars in 682 bytes} [Tue Jun 12 00:07:46 2012] GET /login/ => generated 3720 bytes in 87 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)
+[pid: 10458|app: 0|req: 7/7] 127.0.0.1 () {44 vars in 841 bytes} [Tue Jun 12 00:07:55 2012] POST /login/ => generated 3857 bytes in 59 msecs (HTTP/1.1 200) 1 headers in 108 bytes (2 switches on core 0)

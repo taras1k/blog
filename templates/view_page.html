@@ -10,7 +10,7 @@
 		<h2>{{ data.post_title }}</h2>
 		<p>{{ data.post_body }}</p>
 		{% if users.get_user() %}
-			<em><a href="{{ url.url_for('edit_publication', data.post_url) }}">edit</a></em>
+			<em><a href="{{ url.url_for('edit_publication', data.post_url) }}">редагувати</a></em>
 		{% endif %}		
 		</div>		
 {% endblock %}

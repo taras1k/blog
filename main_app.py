@@ -23,6 +23,7 @@ url.add('/posts/', 'view_publication')
 url.add('/pages/', 'view_page')
 url.add('/api/json/','get_json_posts')
 url.add('/rss/','feed')
+url.add('/delete_publication/', 'delete_publication')
 
 
 urls = ("/login/", "login",
@@ -30,6 +31,7 @@ urls = ("/login/", "login",
 		"/", "main",
         "/add_publication/", "add_publication",
         "/edit_publication/(.+)", "edit_publication",
+        "/delete_publication/(.+)", "delete_publication",
         "/posts/(.+)", "view_publication",
         "/pages/(.+)", "view_page",
         "/api/json/", "get_json_posts",
@@ -152,6 +154,14 @@ class view_publication:
     def GET(self, post_url):
         post = Post(users, post_url)
         return render_template('view_publication.html', data=post)
+
+class delete_publication:
+    
+    @users.login_required
+    def GET(self, post_url):
+        post = Post(users, post_url)
+        post.delete()
+        web.redirect(url.url_for('home'))
 
 class view_page:
     

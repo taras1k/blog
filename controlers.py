@@ -85,6 +85,10 @@ class Post(object):
         self.prepare()
         self.post_model.save(self.post_db)
 
+    def delete(self):
+        self.post_model.remove(self.post_db)
+
+
     def get_posts_count(self):
         if self.users.get_user():
             posts = self.post_model.find({})

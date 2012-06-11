@@ -62,8 +62,12 @@
                           Публікувати
                         {% endif %}
                         </button>
+                        {% if is_edit %}
+                          <a href="{{url.url_for('delete_publication', post.post_url)}}" class="btn btn-danger" ></a>
+                        {% endif %}
               </div>
         </form>
+
         {{ post }}
 
 {% endblock %}
