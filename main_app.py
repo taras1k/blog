@@ -3,9 +3,9 @@ import os
 import web
 import users
 import datetime
-import settings 
+from  settings import database
 from helpers import url, get_page
-from controlers import Post
+from controllers.publication import PostController
 from session import MongoStore
 from jinja2 import Environment,FileSystemLoader
 from bson import json_util
@@ -39,10 +39,10 @@ urls = ("/login/", "login",
 
 app = web.application(urls, globals())
 
-session = web.session.Session(app, MongoStore(settings.db, 'sessions'))
+session = web.session.Session(app, MongoStore(database.db, 'sessions'))
 
 users.session = session
-users.collection = settings.db.users
+users.collection = database.db.users
 
 
 def render_template(template_name, **context):
@@ -62,7 +62,7 @@ def render_template(template_name, **context):
 
 class main:
     def GET(self):
-        post = Post(users)
+        post = PostController(users)
         params = web.input()
         pagination = {}
         g_page = params.get('page', 0)
@@ -78,7 +78,7 @@ class main:
 
 class get_json_posts:
     def GET(self):
-        post = Post(users)
+        post = PostController(users)
         params = web.input()
         g_page = params.get('page', 0)
         page = get_page(g_page)
@@ -119,7 +119,7 @@ class add_publication:
                               post_drafts=False,
                               post_date=str(datetime.datetime.today())
                               )
-        post = Post(users)
+        post = PostController(users)
         post.post_title = post_data['post_title']
         post.post_body = post_data['post_body']
         post.post_date = post_data['post_date']
@@ -131,7 +131,7 @@ class edit_publication:
     
     @users.login_required
     def GET(self, post_url):
-        post = Post(users, post_url)
+        post = PostController(users, post_url)
         return render_template('add_edit_publication.html', post=post, is_edit=True)
     
     @users.login_required
@@ -141,7 +141,7 @@ class edit_publication:
                               post_drafts=False,
                               post_date=str(datetime.datetime.today())
                               )
-        post = Post(users, post_url)
+        post = PostController(users, post_url)
         post.post_title = post_data['post_title']
         post.post_body = post_data['post_body']
         post.post_date = post_data['post_date']
@@ -152,27 +152,27 @@ class edit_publication:
 class view_publication:
     
     def GET(self, post_url):
-        post = Post(users, post_url)
+        post = PostController(users, post_url)
         return render_template('view_publication.html', data=post)
 
 class delete_publication:
     
     @users.login_required
     def GET(self, post_url):
-        post = Post(users, post_url)
+        post = PostController(users, post_url)
         post.delete()
         web.redirect(url.url_for('home'))
 
 class view_page:
     
     def GET(self, page_url):
-        post = Post(users, page_url)
+        post = PostController(users, page_url)
         return render_template('view_page.html', data=post)
 
 class feed:
     def GET(self):
         date = datetime.datetime.today().strftime("%a, %d %b %Y %H:%M:%S +0200")
-        post = Post(users)
+        post = PostController(users)
         posts = post.get_posts(limit_to=POSTS_PER_PAGE)
         web.header('Content-Type', 'application/xml')
         return render_template('feed.xml', posts=posts, date=date)

@@ -4,7 +4,7 @@ from bson.binary import Binary
 from re import _pattern_type
 from time import time
 from web.session import Store
-from settings import connection
+from settings.database import connection
 
 valid_key_types = set((str, unicode))
 atomic_types = set((bool, int, long, float, str, unicode, type(None),

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import web
 import hashlib
-from settings import connection
+from settings.database import connection
 import sensetive_info 
 
 SALTY_GOODNESS = sensetive_info.SALTY_GOODNESS

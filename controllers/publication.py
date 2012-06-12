@@ -1,9 +1,9 @@
 from time import time
 from datetime import datetime
 from dateutil.parser import parse
-from models import PostModel
+from models.publication import PostModel
 
-class Post(object):
+class PostController(object):
 
     def __init__(self, users, post_url=None):
         self.users = users
