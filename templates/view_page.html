@@ -8,7 +8,9 @@
 {% block content %}
 		<div class="hero-unit">
 		<h2>{{ data.post_title }}</h2>
-		{{ data.post_body }}
+		<div class="lead">
+			{{ data.post_body }}
+		</div>
 		{% if users.get_user() %}
 			<em><a href="{{ url.url_for('edit_publication', data.post_url) }}">редагувати</a></em>
 		{% endif %}		

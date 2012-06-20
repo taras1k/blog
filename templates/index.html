@@ -15,7 +15,7 @@
 	{% for post in posts_data %}
 	<div class="hero-unit">
 		<h2><a href="{{ url.url_for('view_publication', post.post_url) }}">{{ post.post_title }}</a></h2>
-        <div class="post_body">
+        <div class="lead">
             {{ post.post_body }}
         </div>
 		<em>{{ post.post_date }}</em>
