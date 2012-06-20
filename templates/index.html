@@ -15,7 +15,9 @@
 	{% for post in posts_data %}
 	<div class="hero-unit">
 		<h2><a href="{{ url.url_for('view_publication', post.post_url) }}">{{ post.post_title }}</a></h2>
-		{{ post.post_body }}
+        <div class="post_body">
+            {{ post.post_body }}
+        </div>
 		<em>{{ post.post_date }}</em>
 		{% if users.get_user() %}
 			<em><a href="{{ url.url_for('edit_publication', post.post_url) }}">редагувати</a></em>
