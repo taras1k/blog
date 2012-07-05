@@ -39,7 +39,6 @@
         >
                     <label for="post_title">Заголовок</label>
                     <input name="post_title" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />          
-          <input id="input_style" class="btn" type="button" value="Текс/html" />
 					<label for="post_body">Текст</label>          
 					<div id='msg_div' class="yui-skin-sam">
 						<textarea name="post_body" tabindex="3" id="msgpost" cols="50" rows="10">
@@ -74,33 +73,15 @@
 <script type='text/javascript'>
   $(document).ready(function() {
     $("#post_date").datetimepicker();
-    var msg_div = $('msg_div');
     var myEditor = new YAHOO.widget.Editor('msgpost', {
         height: '200px',
         width: '630px',
         animate: true //Animates the opening, closing and moving of Editor windows
     });
-    var state = 'text';
     myEditor.render();
     $('#post_publication').on('click', function(){
         myEditor.saveHTML();
       }      
-    );
-    $('#input_style').on('click', function(){
-      console.log('hi');
-      if(state == 'text')
-      {
-        console.log('hi1');
-        msg_div.removeClass('yui-skin-sam');
-        myEditor.saveHTML();
-        state = 'html';
-      }else{
-        console.log('hi2');
-        msg_div.addClass('yui-skin-sam');
-        myEditor.render();
-        state = 'text';
-      }
-    }
     );
   });
 </script>
