@@ -38,8 +38,7 @@
         {% endif %}
         >
                     <label for="post_title">Заголовок</label>
-                    <input name="post_title" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />
-          <a class="btn" href="">Link</a>
+                    <input name="post_title" id="post_title" placeholder="Заголовок"  type="pub_title" autocapitalize="off" autocorrect="off" tabindex="2" maxlength="254" value="{{ post.post_title }}" />          
           <input id="input_style" class="btn" type="button" value="Текс/html" />
 					<label for="post_body">Текст</label>          
 					<div id='msg_div' class="yui-skin-sam">
@@ -69,9 +68,6 @@
                         {% endif %}
               </div>
         </form>
-
-        {{ post }}
-
 {% endblock %}
 
 {% block scripts %}
@@ -91,12 +87,15 @@
       }      
     );
     $('#input_style').on('click', function(){
+      console.log('hi');
       if(state == 'text')
       {
+        console.log('hi1');
         msg_div.removeClass('yui-skin-sam');
         myEditor.saveHTML();
         state = 'html';
       }else{
+        console.log('hi2');
         msg_div.addClass('yui-skin-sam');
         myEditor.render();
         state = 'text';
