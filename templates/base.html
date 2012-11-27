@@ -32,7 +32,7 @@
           <a class="brand" href="/">Блог Тараса Нека</a>
           <div class="nav-collapse">
             <ul class="nav">
-            {% block header %}{% endblock 
+            {% block header %}{% endblock}
             {%if users.get_user() %}
               <li class="signIn"><a href="{{url.url_for('logout')}}">вийти</a></li>
             {%endif%}              
