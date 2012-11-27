@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555555;
+  background-color: #ededed;
+}
+
+.hero-unit {
+  padding: 30px;
+  margin-bottom: 30px;
+  background-color: #fefefe;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 600px;
+  
+}
+.hero-unit h2, .hero-unit h2 a {
+font-family: 'Ubuntu Condensed', sans-serif;
+font-size: 24px;
+font-weight: normal;
+}
+
+.hero-unit h2 a:hover {
+text-decoration: none;
+}
+
+.hero-unit p, .hero-unit .lead {
+font-size: 14px !important;}
+
+.hero-unit em {
+font-size: 12px;
+}
+ 
+.dummy {
+  margin-bottom: 50px;
+
+}
+.container {
+width: 980px;
+}
+
+#taras1k {
+width: 240px;
+float: left;
+margin: 0 0 0 680px;
+  padding: 30px;
+
+position: fixed;
+
+}
+#taras1k h1 {
+color: #0e232e;
+font-family: 'Ubuntu Condensed', sans-serif;
+font-size: 32px;
+text-shadow: 0 1px 0 #FFFFFF;
+text-align: center;
+}
+#taras1k .prof {
+color: #777;
+text-shadow: 0 1px 0 #FFFFFF;
+font-size: 22px;
+text-align: center;
+}
+
+#taras1k .ml {
+text-align: center;
+margin: 10px 0 10px 0;
+}
+
+#taras1k .ml a {
+text-decoration: none;
+color: #777;
+} 
+
+.social {
+text-align: center;
+}
+
+.social img {
+margin: 0 5px;
+text-align: center;
+}

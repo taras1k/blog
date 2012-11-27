@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>@taras1k {% block title %}{% endblock %}</title>
+      <title>Блог Тараса Нека (@taras1k) {% block title %}{% endblock %}</title>
       <meta charset="UTF-8">
       <meta content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport" />
       <meta content="yes" name="apple-mobile-web-app-capable" />
@@ -11,6 +11,8 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
       <link href="{{ url.url_for('static', '/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+ 	<link href="{{ url.url_for('static', 'taras1k.css') }}" rel="stylesheet">
+     	 <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=cyrillic' rel='stylesheet' type='text/css'>
       <link rel="alternate" type="application/rss+xml" title="самописний блог" href="http://feeds2.feedburner.com/nek/taras?format=xml" />  
       <link rel="alternate" type="application/atom+xml" title="самописний блог" href="http://feeds2.feedburner.com/nek/taras" />
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -27,17 +29,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Самописний блог</a>
+          <a class="brand" href="/">Блог Тараса Нека</a>
           <div class="nav-collapse">
             <ul class="nav">
-            {% block header %}{% endblock %}
+            {% block header %}{% endblock 
             {%if users.get_user() %}
               <li class="signIn"><a href="{{url.url_for('logout')}}">вийти</a></li>
             {%endif%}              
             </ul>
             <ul class="nav pull-right">
-                <li><a href="https://github.com/taras1k/blog" target="_blank">git</a></li>
-                <li><a href="mailto:taras@nek.me" target="_blank">пошта</a></li>
+                <li><a href="https://github.com/taras1k/blog" target="_blank">про мене</a></li>
           </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,7 +46,21 @@
     </div>
 
     <div class="container">
-
+      <div class="dummy">
+      </div>    
+  
+     <div class="about" id="taras1k">
+        <img alt="Тарас Нек" title="Тарас Нек" src="{{ url.url_for('static', 'img/taras1k.css') }}" />
+        <h1>Тарас Нек</h1>
+        <div class="prof" >python developer</div>
+        <div class="ml"><a href="mailto:taras@nek.me" target="_blank">taras [at] nek.me</a></div>
+        <div class="social">
+        	<a href="http://github.com/taras1k" title="github"  target="_blank"><img alt="github" title="github" src="{{ url.url_for('static', 'img/github.png') }}" /></a>
+        	<a href="http://ua.linkedin.com/in/taras1k" title="linkedin"  target="_blank"><img alt="linkedin" title="linkedin" src="{{ url.url_for('static', 'img/linkefin.png') }}" /></a>
+        	<a href="http://twitter.com/taras1k" title="twitter"  target="_blank"><img alt="twitter" title="twitter" src="{{ url.url_for('static', 'img/twitter.png') }}" /></a>
+        	<a href="http://www.facebook.com/taras1k" title="facebook"  target="_blank"><img alt="facebook" title="facebook" src="{{ url.url_for('static', 'img/facebook.png') }}" /></a>
+        </div>
+    </div>
       {% block content %}{% endblock %} 
 
     </div> <!-- /container -->
