@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}
-    blog
-{% endblock %}
-
 {% block header %}
  	{% if users.get_user() %}
  		<li><a href="{{ url.url_for('add_publication') }}">додати</a></li>
