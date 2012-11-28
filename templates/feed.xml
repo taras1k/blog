@@ -1,7 +1,7 @@
 <!--?xml version="1.0"?-->
 <rss version="2.0">
    <channel>
-      <title>самописний блог</title>
+      <title>Блог Тараса Нека</title>
       <link>http://taras.nek.me</link>
       <description>то є такий блог шо сам пишеться)).</description>
       <language>uk-ua</language>
@@ -16,7 +16,7 @@
       <item>
          <title>{{ post.post_title }}</title>
          <link>{{ url.url_for('view_publication', post.post_url) }}</link>
-         <description><!--[CDATA[{{ post.post_body[:100] }}..]]--></description>
+         <description><![CDATA[{{ post.post_body[:100] }}..<a href="{{ url.url_for('view_publication', post.post_url) }}">Читати далі</a>]]></description>
          <pubdate>{{ post.post_date }}</pubdate>
          <guid>{{ url.url_for('view_publication', post.post_url) }}</guid>
       </item>
